@@ -1,12 +1,14 @@
 package org.launchcode.java.demos.lsn2controlflowandcollections;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class ArrayListGradebook {
 
     public static void main(String[] args) {
 
+        Locale.setDefault(Locale.US);
         ArrayList<String> students = new ArrayList<>();
         ArrayList<Double> grades = new ArrayList<>();
         Scanner input = new Scanner(System.in);
