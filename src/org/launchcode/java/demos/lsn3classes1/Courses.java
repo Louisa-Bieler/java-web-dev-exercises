@@ -1,6 +1,7 @@
 package org.launchcode.java.demos.lsn3classes1;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Courses {
     private String instructor;
@@ -8,27 +9,24 @@ public class Courses {
     private final int courseNumber;
     private int credits;
     private int capacity;
-    private String semester;
+    private ArrayList<Student> students = new ArrayList<Student>();
     private LocalDate startDate;
 
     //constructor
 
-    public Courses(String instructor, String department, int courseNumber, int credits, int aCapacity, String aSemester, LocalDate aStartDate){
+    public Courses(String instructor, String department, int courseNumber, int credits, int capacity, LocalDate startDate){
         this.instructor = instructor;
         this.department = department;
         this.courseNumber = courseNumber;
         this.credits = credits;
-        this.capacity = aCapacity;
-        this.semester = aSemester;
-        this.startDate = aStartDate;
+        this.capacity = capacity;
+        this.startDate = startDate;
     }
+
+
 
     public int getCourseNumber(){
         return courseNumber;
-    }
-
-    public String getSemester(){
-        return semester;
     }
 
     public String getInstructor(){
@@ -50,9 +48,26 @@ public class Courses {
         return startDate;
     }
 
-    public void setInstructor(String instructor){
-        this.instructor = instructor
+    public void setInstructor(String aInstructor){
+        this.instructor = aInstructor;
 
     }
 
-}
+    public void setStudents(Student aStudent){
+        this.students.add(aStudent);
+    }
+
+    public ArrayList<Student> getStudents() {
+        return students;
+
+        }
+
+    public void getStudentNames(Courses aCourse){
+        ArrayList<Student> students = (aCourse.getStudents());
+        String student = null;
+        String newline = System.lineSeparator();
+        for (Student aStudent : students) {
+            System.out.print(aStudent.getName() + newline);
+        }
+    }
+    }
