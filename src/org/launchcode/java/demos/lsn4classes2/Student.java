@@ -29,14 +29,30 @@ public class Student {
     }
 
 
-     //TODO: Uncomment and complete the getGradeLevel method here:
-//    public String getGradeLevel() {
-//        // Determine the grade level of the student based on numberOfCredits
-//    }
+
+    public String getGradeLevel() {
+
+        if (this.getNumberOfCredits() <= 29){
+            String freshman = "Freshman";
+            return freshman;
+        } else if (this.getNumberOfCredits() <= 59) {
+            String sophomore = "Sophomore";
+            return sophomore;
+        } else if (this.getNumberOfCredits() <= 89) {
+            String junior = "Junior";
+            return junior;
+        } else {
+            String senior = "Senior";
+            return senior;
+        }
+    }
 
     // TODO: Complete the addGrade method.
     public void addGrade(int courseCredits, double grade) {
-        // Update the appropriate fields: numberOfCredits, gpa
+        double currentQualityScore = this.getGpa() * this.getNumberOfCredits();
+        double totalQualityScore = currentQualityScore + courseCredits*grade;
+        this.setNumberOfCredits(this.getNumberOfCredits()+courseCredits);
+        this.setGpa(totalQualityScore/this.getNumberOfCredits());
     }
 
     // TODO: Add your custom 'toString' method here. Make sure it returns a well-formatted String rather
@@ -78,12 +94,15 @@ public class Student {
     }
 
     public static void main(String[] args) {
-        Student sally = new Student("Sally",1,1,4.0);
+        Student sally = new Student("Sally",1,35,4.0);
         System.out.println("The Student class works! " + sally.getName() + " is a student!");
-        System.out.println(sally);
+        System.out.println(sally.getGradeLevel());
+        System.out.println(sally.gpa);
         sally.addGrade(12, 3.5);
-        System.out.println(sally);
+        System.out.println(sally.getGradeLevel());
+        System.out.println(sally.gpa);
         sally.addGrade(25, 3.8);
-        System.out.println(sally);
+        System.out.println(sally.getGradeLevel());
+        System.out.println(sally.gpa);
     }
 }
