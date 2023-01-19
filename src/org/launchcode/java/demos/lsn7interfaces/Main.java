@@ -2,18 +2,22 @@ package org.launchcode.java.demos.lsn7interfaces;
 
 import java.util.ArrayList;
 
+
 public class Main {
     public static void main(String[] args){
         Case menu = new Case();
         ArrayList<Flavor> flavors = menu.getFlavors();
         ArrayList<Cone> cones = menu.getCones();
+        FlavorComparator compare = new FlavorComparator();
+        ConesComparator coneCompare = new ConesComparator();
+        System.out.println(flavors.toString());
+        System.out.println(cones.toString());
 
-        // TODO: Use a Comparator class to sort the 'flavors' array alphabetically by the 'name'
-        //  field.
+        flavors.sort(compare);
+        cones.sort(coneCompare);
 
-        // TODO: Use a Comparator class to sort the 'cones' array in increasing order by the 'cost'
-        //  field.
 
-        // TODO: Print the 'flavors' and 'cones' lists (in a clear manner) to verify the sorting.
+        System.out.println(flavors.toString());
+        System.out.println(cones.toString());
     }
 }
